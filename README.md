@@ -89,9 +89,14 @@ docker run -d \
 version: "3.9"
 services:
   ddns-ipv64:
+    # build:
+      # dockerfile: ./Dockerfile
     image: alcapone1933/ddns-ipv64:latest
+    # image: alcapone1933/ddns-ipv64:v0.1.1
     container_name: ddns-ipv64
     restart: always
+    # volumes:
+      # - data:/data
     environment:
       - "TZ=Europe/Berlin"
       - "CRON_TIME=*/15 * * * *"
@@ -103,6 +108,9 @@ services:
       # - "DOMAIN_PRAEFIX=ddns"
       - "DOMAIN_KEY=1234567890abcdefghijklmn"
       # - "SHOUTRRR_URL="
+# volumes:
+  # data:
+    # name: ddns-ipv64_data
 ```
 
 &nbsp;
