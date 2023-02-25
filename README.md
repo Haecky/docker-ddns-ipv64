@@ -89,20 +89,30 @@ docker run -d \
 version: "3.9"
 services:
   ddns-ipv64:
+    # build:
+      # dockerfile: ./Dockerfile
     image: alcapone1933/ddns-ipv64:latest
+    # image: alcapone1933/ddns-ipv64:v0.1.1
     container_name: ddns-ipv64
     restart: always
+    # volumes:
+      # - data:/data
     environment:
       - "TZ=Europe/Berlin"
       - "CRON_TIME=*/15 * * * *"
       - "CRON_TIME_DIG=*/30 * * * *"
       - "DOMAIN_IPV64=deine-domain.ipv64.net"
+      - "DNSSERVER=ns1.ipv64.net"
+      # ⚠️ DNSSERVER nur ändern wenn externe DNSServer im Netzwerk gespert sind ⚠️
       # - "DOMAIN_IPV64=deine-domain.ipv64.net,deine-domain.ipv64.de"
       # - "DOMAIN_PRAEFIX_YES=yes"
       # ⚠️ Hier bitte nur ein DOMAIN PRAEFIX (subdomain) eintragen (ersetzen) ⚠️
       # - "DOMAIN_PRAEFIX=ddns"
       - "DOMAIN_KEY=1234567890abcdefghijklmn"
       # - "SHOUTRRR_URL="
+# volumes:
+  # data:
+    # name: ddns-ipv64_data
 ```
 
 &nbsp;
