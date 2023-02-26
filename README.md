@@ -73,6 +73,7 @@ docker run -d \
     -e "CRON_TIME_DIG=*/30 * * * *" \
     -e "DOMAIN_IPV64=deine-domain.ipv64.net" \
     -e "DOMAIN_KEY=1234567890abcdefghijklmn" \
+    -e "DNSSERVER=ns1.ipv64.net" \
     alcapone1933/ddns-ipv64:latest
 
 
